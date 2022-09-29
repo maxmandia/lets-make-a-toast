@@ -1,10 +1,53 @@
-import { StyleSheet, Text, View, SafeAreaView } from "react-native";
-import React from "react";
+import {
+  StyleSheet,
+  Text,
+  View,
+  SafeAreaView,
+  TouchableOpacity,
+} from "react-native";
+import React, { useCallback, useEffect } from "react";
 import theme from "../theme";
+import { useFonts } from "expo-font";
+import * as SplashScreen from "expo-splash-screen";
+
 const HomeScreen = () => {
+  const [fontsLoaded] = useFonts({
+    "SF-Bold": require("../fonts/SF-Pro-Rounded-Bold.otf"),
+    "SF-Med": require("../fonts/SF-Pro-Rounded-Medium.otf"),
+  });
+
+  useEffect(() => {
+    async function prepare() {
+      await SplashScreen.preventAutoHideAsync();
+    }
+
+    prepare();
+  }, []);
+
+  const onLayoutRootView = useCallback(async () => {
+    if (fontsLoaded) {
+      await SplashScreen.hideAsync();
+    }
+  }, [fontsLoaded]);
+
+  if (!fontsLoaded) {
+    return null;
+  }
+
   return (
-    <SafeAreaView style={styles.container}>
-      <Text>hey</Text>
+    <SafeAreaView onLayout={onLayoutRootView} style={styles.container}>
+      <Text style={styles.textTop}>Let’s Make A</Text>
+      <Text style={styles.textMiddle}>
+        Toast <Text style={styles.emoji}> 🍞 🥂</Text>
+      </Text>
+      <Text style={styles.desc}>A resturant by Ryan Schwary.</Text>
+      <TouchableOpacity style={styles.btnContainer}>
+        <Text style={styles.btnText}>View menu</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.btnContainer2}>
+        <Text style={styles.btnText2}>Request a toast</Text>
+      </TouchableOpacity>
+      <Text style={styles.copyright}>© Let's Make A Toast 2022</Text>
     </SafeAreaView>
   );
 };
@@ -15,5 +58,56 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: theme.background,
     flex: 1,
+    alignItems: "center",
+  },
+  textTop: {
+    marginTop: "30%",
+    fontSize: 40,
+    fontFamily: "SF-Bold",
+    color: "white",
+  },
+  textMiddle: {
+    marginTop: 10,
+    fontSize: 55,
+    fontFamily: "SF-Bold",
+    color: "white",
+  },
+  emoji: {
+    fontSize: 40,
+  },
+  desc: {
+    color: "white",
+    fontSize: 20,
+    marginTop: 20,
+    fontFamily: "SF-Med",
+  },
+  btnContainer: {
+    marginTop: "20%",
+    backgroundColor: theme.button,
+    paddingHorizontal: 50,
+    paddingVertical: 10,
+    borderRadius: 50,
+  },
+  btnText: {
+    color: "white",
+    fontSize: 24,
+    fontFamily: "SF-Bold",
+  },
+  btnContainer2: {
+    marginTop: "10%",
+    backgroundColor: theme.button,
+    paddingHorizontal: 28,
+    paddingVertical: 10,
+    borderRadius: 50,
+  },
+  btnText2: {
+    color: "white",
+    fontSize: 24,
+    fontFamily: "SF-Bold",
+  },
+  copyright: {
+    position: "absolute",
+    bottom: 35,
+    color: "white",
   },
 });
