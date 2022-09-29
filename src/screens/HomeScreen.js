@@ -10,7 +10,7 @@ import theme from "../theme";
 import { useFonts } from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
 
-const HomeScreen = () => {
+const HomeScreen = ({ navigation }) => {
   const [fontsLoaded] = useFonts({
     "SF-Bold": require("../fonts/SF-Pro-Rounded-Bold.otf"),
     "SF-Med": require("../fonts/SF-Pro-Rounded-Medium.otf"),
@@ -40,8 +40,11 @@ const HomeScreen = () => {
       <Text style={styles.textMiddle}>
         Toast <Text style={styles.emoji}> 🍞 🥂</Text>
       </Text>
-      <Text style={styles.desc}>A resturant by Ryan Schwary.</Text>
-      <TouchableOpacity style={styles.btnContainer}>
+      <Text style={styles.desc}>A culinary conception by Ryan Schwary.</Text>
+      <TouchableOpacity
+        style={styles.btnContainer}
+        onPress={() => navigation.navigate("MenuScreen")}
+      >
         <Text style={styles.btnText}>View menu</Text>
       </TouchableOpacity>
       <TouchableOpacity style={styles.btnContainer2}>
@@ -77,9 +80,9 @@ const styles = StyleSheet.create({
   },
   desc: {
     color: "white",
-    fontSize: 20,
+    fontSize: 17,
     marginTop: 20,
-    fontFamily: "SF-Med",
+    fontFamily: "SF-Bold",
   },
   btnContainer: {
     marginTop: "20%",
@@ -107,7 +110,7 @@ const styles = StyleSheet.create({
   },
   copyright: {
     position: "absolute",
-    bottom: 35,
+    bottom: "4%",
     color: "white",
   },
 });
