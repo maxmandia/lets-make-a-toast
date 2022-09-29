@@ -1,11 +1,29 @@
-import { StyleSheet, Text, View, SafeAreaView } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  SafeAreaView,
+  FlatList,
+  Image,
+} from "react-native";
 import React from "react";
 import theme from "../theme";
+import { menuItems } from "../menuItems";
+import ToastIMG from "../../assets/toast.jpg";
 const MenuScreen = () => {
   return (
-    <SafeAreaView style={styles.container}>
-      <Text>MenuScreen</Text>
-    </SafeAreaView>
+    <>
+      <View style={styles.container}>
+        <View style={styles.header} />
+        <Image style={styles.img} source={ToastIMG} />
+        <FlatList
+          data={menuItems}
+          renderItem={({ item, index }) => {
+            return <View key={index}>{<Text>{item.name}</Text>}</View>;
+          }}
+        />
+      </View>
+    </>
   );
 };
 
@@ -15,5 +33,18 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: theme.background,
+  },
+  header: {
+    backgroundColor: theme.button,
+    width: "100%",
+    height: "15%",
+  },
+  img: {
+    position: "absolute",
+    textAlign: "center",
+    top: "11%",
+    alignSelf: "center",
+    height: 110,
+    width: 110,
   },
 });

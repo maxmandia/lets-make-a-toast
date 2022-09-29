@@ -36,7 +36,7 @@ const HomeScreen = ({ navigation }) => {
 
   return (
     <SafeAreaView onLayout={onLayoutRootView} style={styles.container}>
-      <Text style={styles.textTop}>Let’s Make A</Text>
+      <Text style={styles.textTop}>Let’s Make a</Text>
       <Text style={styles.textMiddle}>
         Toast <Text style={styles.emoji}> 🍞 🥂</Text>
       </Text>
