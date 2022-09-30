@@ -65,24 +65,25 @@ const styles = StyleSheet.create({
   },
   textTop: {
     marginTop: "30%",
-    fontSize: 40,
+    fontSize: 44,
     fontFamily: "SF-Bold",
-    color: "white",
+    color: "#5F4848",
   },
   textMiddle: {
     marginTop: 10,
-    fontSize: 55,
+    fontSize: 59,
     fontFamily: "SF-Bold",
-    color: "white",
+    color: "#5F4848",
   },
   emoji: {
     fontSize: 40,
+    marginBottom: "1%",
   },
   desc: {
-    color: "white",
-    fontSize: 17,
+    color: "#5F4848",
+    fontSize: 19,
     marginTop: 20,
-    fontFamily: "SF-Bold",
+    fontFamily: "SF-Med",
   },
   btnContainer: {
     marginTop: "20%",
@@ -93,7 +94,7 @@ const styles = StyleSheet.create({
   },
   btnText: {
     color: "white",
-    fontSize: 24,
+    fontSize: 22,
     fontFamily: "SF-Bold",
   },
   btnContainer2: {
@@ -105,12 +106,12 @@ const styles = StyleSheet.create({
   },
   btnText2: {
     color: "white",
-    fontSize: 24,
+    fontSize: 22,
     fontFamily: "SF-Bold",
   },
   copyright: {
     position: "absolute",
     bottom: "4%",
-    color: "white",
+    color: "#5F4848",
   },
 });

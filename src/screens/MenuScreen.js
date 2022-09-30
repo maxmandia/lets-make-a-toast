@@ -24,6 +24,9 @@ const MenuScreen = () => {
         </View>
         <View style={styles.flContainer}>
           <FlatList
+            contentContainerStyle={{
+              paddingBottom: "40%",
+            }}
             data={menuItems}
             renderItem={({ item, index }) => {
               return (
@@ -69,7 +72,7 @@ const styles = StyleSheet.create({
     marginTop: "2%",
     fontFamily: "SF-Bold",
     color: "#5F4848",
-    fontSize: 26,
+    fontSize: 32,
   },
   restDesc: {
     marginTop: "1%",
@@ -86,7 +89,7 @@ const styles = StyleSheet.create({
     marginLeft: "8%",
   },
   itemContainer: {
-    marginBottom: "10%",
+    marginBottom: "8%",
   },
   name: {
     color: "#5F4848",
@@ -101,6 +104,7 @@ const styles = StyleSheet.create({
   },
   price: {
     color: "#5F4848",
+    fontFamily: "SF-Med",
   },
   dot: {
     height: 5,
@@ -114,9 +118,11 @@ const styles = StyleSheet.create({
     textAlign: "left",
     marginLeft: "2%",
     fontStyle: "italic",
+    // fontFamily: "SF-Med",
   },
   descText: {
     color: "#5F4848",
     marginTop: "3%",
+    width: "91%",
   },
 });
